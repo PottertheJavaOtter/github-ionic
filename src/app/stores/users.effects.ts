@@ -14,7 +14,8 @@ import {
   loadAllSuccess,
   loadSuccess,
   search,
-  searchSuccess
+  searchSuccess,
+  clearSearch
 } from './users.actions';
 import { UsersService } from '../services/users.service';
 
@@ -37,7 +38,10 @@ export class UsersEffects {
     ofType(search),
     pluck('query'),
     switchMap(query => this.usersService.search(query).pipe(
-      map(user => searchSuccess({ user }))
+      map(user => searchSuccess({ user })),
+      catchError(err => {
+        return of(clearSearch());
+      })
     )),
   ));
 

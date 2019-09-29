@@ -8,19 +8,30 @@
     <ion-card-content>
       <ion-list>
         <ion-item>
-          <ion-label>Name: {{ user.name }}</ion-label>
+          <ion-label appRedText [numOfRepos]="user.public_repos"
+            >Name: {{ user.name }}</ion-label
+          >
         </ion-item>
         <ion-item>
-          <ion-label>Bio: {{ user.bio }}</ion-label>
+          <ion-label appRedText [numOfRepos]="user.public_repos"
+            >Bio: {{ user.bio }}</ion-label
+          >
         </ion-item>
         <ion-item>
-          <ion-label>Company: {{ user.company }}</ion-label>
+          <ion-label appRedText [numOfRepos]="user.public_repos"
+            >Company: {{ user.company }}</ion-label
+          >
         </ion-item>
         <ion-item>
-          <ion-label>Location: {{ user.location }}</ion-label>
+          <ion-label appRedText [numOfRepos]="user.public_repos"
+            >Location: {{ user.location }}</ion-label
+          >
         </ion-item>
         <ion-item>
-          <ion-label (click)="openWebsite()"
+          <ion-label
+            appRedText
+            [numOfRepos]="user.public_repos"
+            (click)="openWebsite()"
             >Website: {{ user.blog }}</ion-label
           >
         </ion-item>
