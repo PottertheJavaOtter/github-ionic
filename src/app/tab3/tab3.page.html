@@ -9,23 +9,12 @@
       animated
       debounce="500"
       placeholder="Search Users"
+      [value]="query"
       (ionChange)="search($event)"
     ></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <!-- <ion-item *ngFor="let user of search$ | async">
-      <ion-avatar slot="start">
-        <img src="{{ user.avatar_url }}" />
-      </ion-avatar>
-      <ion-label>
-        <h2>{{ user.login }}</h2>
-        <h3>url: {{ user.html_url }}</h3>
-      </ion-label>
-    </ion-item> -->
-  <!-- </ion-list> -->
-  <div *ngIf="search$ | async as user">
-    <app-user-profile [user]="user"></app-user-profile>
-  </div>
+  <app-user-profile [user]="search$ | async"></app-user-profile>
 </ion-content>

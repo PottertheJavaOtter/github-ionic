@@ -11,7 +11,10 @@
     <ion-list-header>
       Github Users
     </ion-list-header>
-    <ion-item *ngFor="let user of users$ | async">
+    <ion-item
+      *ngFor="let user of users$ | async"
+      (click)="navigateToUser(user)"
+    >
       <ion-avatar slot="start">
         <img src="{{ user.avatar_url }}" />
       </ion-avatar>

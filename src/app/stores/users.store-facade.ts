@@ -4,7 +4,7 @@ import { select, Store } from '@ngrx/store';
 
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
-import { loadAll, search } from './users.actions';
+import { loadAll, search, clearSearch } from './users.actions';
 import { selectAllUsers, selectSearch } from './users.selectors';
 
 @Injectable()
@@ -20,6 +20,10 @@ export class UsersStoreFacade {
     this.search$ = this.store.pipe(
       select(selectSearch)
     );
+  }
+
+  clearSearch() {
+    this.store.dispatch(clearSearch());
   }
 
   getUsers() {

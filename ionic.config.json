@@ -1,5 +1,7 @@
 {
   "name": "open-forge",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

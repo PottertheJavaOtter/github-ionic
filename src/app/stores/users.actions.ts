@@ -23,8 +23,9 @@ export const loadSuccess = createAction(
 
 export const search = createAction('[Users] Search', props<{ 'query': string }>());
 export const searchSuccess = createAction('[Users] Search Success', props<{ user: User }>());
-export const searchFailure = createAction('[Users] Search Failure', props<{ message: string }>());
+export const searchFailure = createAction('[Users] Search Failure', props<{ user: User }>());
 
+export const clearSearch = createAction('[Users] Clear Search');
 
 export const failure = createAction(
   '[User] Failure',

@@ -1,4 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { IonInfiniteScroll } from '@ionic/angular';
 import { User } from '../models/user.model';
 import { Observable } from 'rxjs';
@@ -16,7 +17,8 @@ export class Tab2Page {
   users$: Observable<User[]>;
 
   constructor(
-    private usersFacade: UsersStoreFacade
+    private usersFacade: UsersStoreFacade,
+    private router: Router
   ) {
     this.users$ = this.usersFacade.users$;
   }
@@ -31,5 +33,9 @@ export class Tab2Page {
 
   toggleInfiniteScroll() {
     this.infiniteScroll.disabled = !this.infiniteScroll.disabled;
+  }
+
+  navigateToUser(user: User) {
+    this.router.navigate(['/tabs/tab3'], { queryParams: { login: user.login } });
   }
 }

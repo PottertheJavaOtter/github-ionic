@@ -4,12 +4,13 @@ import { createReducer, on } from '@ngrx/store';
 import {
   loadAllSuccess,
   loadSuccess,
-  searchSuccess
+  searchSuccess,
+  clearSearch
 } from './users.actions';
 
 // This adapter will allow is to manipulate contacts (mostly CRUD operations)
 export const usersAdapter = createEntityAdapter<User>({
-  selectId: (user: User) => user.id,
+  selectId: (user: User) => user.login,
   sortComparer: false
 });
 
@@ -46,6 +47,10 @@ export const usersReducer = createReducer<State>(
   on(searchSuccess, (state, { user }) => ({
     ...state,
     search: user
+  })),
+  on(clearSearch, (state) => ({
+    ...state,
+    search: null
   }))
 );
 
