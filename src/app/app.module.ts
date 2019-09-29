@@ -19,7 +19,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { UsersStoreFacade } from './stores/users.store-facade';
 import { UsersEffects } from './stores/users.effects';
 import { usersReducer } from './stores/users.reducer';
-
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 @NgModule({
   declarations: [AppComponent],
@@ -38,7 +38,8 @@ import { usersReducer } from './stores/users.reducer';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     UsersService,
-    UsersStoreFacade
+    UsersStoreFacade,
+    InAppBrowser
   ],
   bootstrap: [AppComponent]
 })

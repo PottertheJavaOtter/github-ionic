@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { InAppBrowser } from '@ionic-native/in-app-browser/ngx';
 
 import { User } from 'src/app/models/user.model';
 
@@ -11,8 +12,14 @@ export class UserProfileComponent implements OnInit {
 
   @Input() user: User;
 
-  constructor() { }
+  constructor(private iab: InAppBrowser) { }
 
   ngOnInit() { }
 
+  openWebsite() {
+    if (this.user.blog) {
+      const browser = this.iab.create(this.user.blog);
+      browser.close();
+    }
+  }
 }
